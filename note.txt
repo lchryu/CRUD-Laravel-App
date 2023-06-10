@@ -1,0 +1,68 @@
+php artisan make:controller ProductsController --resource
+php artisan make:model Post
+php artisan make:migration create_table_posts
+
+4.php artisan make:model Post -m
+
+   INFO  Model [C:\Users\LENOVO\Desktop\testLaravel\laravel-app\app/Models/Post.php] created successfully.
+
+   INFO  Migration [C:\Users\LENOVO\Desktop\testLaravel\laravel-app\database\migrations/2023_06_10_182628_create_posts_table.php] created successfully.
+5.php artisan migrate
+6. php artisan migrate:reset
+    drop toan bo table
+
+7. php artisan migrate:refresh
+refresh = rollback + migrate
+8. fresh la xoa tat ca cac bang
+
+9. php artisan make:factory PostFactory
+Factory is where to generate dummy data
+Câu lệnh php artisan make:factory PostFactory được sử dụng trong Laravel để tạo ra một file Factory mới có tên là PostFactory. Factory trong Laravel là nơi để bạn tạo dữ liệu giả đối với các mô hình (models) trong ứng dụng của bạn.
+
+Khi bạn chạy câu lệnh trên, Laravel sẽ tạo ra một file PostFactory.php trong thư mục database/factories của dự án Laravel của bạn. File này chứa một lớp Factory mẫu (template) để bạn định nghĩa cách tạo dữ liệu giả cho mô hình Post.
+
+Bạn có thể mở file PostFactory.php và định nghĩa các giá trị giả cho các trường của mô hình Post. Ví dụ, bạn có thể định nghĩa một Factory để tạo ra các bài viết giả với các trường như title, content, author, v.v.
+
+Sau khi bạn đã tạo Factory, bạn có thể sử dụng nó trong các bài kiểm tra (tests) hoặc seeding database. Factory giúp bạn tạo dữ liệu giả một cách dễ dàng và tự động, giúp tăng tốc quá trình phát triển và kiểm thử ứng dụng của bạn.
+
+Lưu ý rằng để sử dụng Factory, bạn cần cài đặt gói phụ thuộc faker thông qua Composer. Gói này được sử dụng để tạo ra dữ liệu giả ngẫu nhiên.
+
+10. php artisan make:factory PostFactory --model=Post
+tạo PostFactory kèm model
+
+Câu lệnh php artisan make:factory PostFactory --model=Post
+trong Laravel được sử dụng để tạo một Factory mới cho mô hình (model) Post.
+Thêm --model=Post vào câu lệnh giúp Laravel tự động liên kết Factory với mô hình Post tương ứng.
+
+11. Để sử dụng được faker cần import
+use Illuminate\Support\Str;
+
+12.Dòng protected $model = \App\Models\Post::class; trong lớp PostFactory xác định mô hình (model) liên kết với Factory. Nó cho biết rằng Factory này được sử dụng để tạo dữ liệu giả đối với mô hình Post trong ứng dụng Laravel của bạn.
+
+   Bằng cách chỉ định $model là \App\Models\Post::class, bạn đang nói cho Factory biết rằng nó sẽ tạo dữ liệu giả cho mô hình Post. Khi bạn sử dụng Factory này để tạo các bản ghi giả trong cơ sở dữ liệu, nó sẽ tuân thủ theo cấu trúc và quy tắc mô hình Post đã được định nghĩa trong ứng dụng Laravel của bạn.
+
+   Thông qua dòng này, Laravel Factory sẽ biết mô hình nào được sử dụng và sẽ tạo dữ liệu giả dựa trên các định nghĩa trong hàm definition của Factory.
+
+13.Câu lệnh php artisan tinker được sử dụng để khởi chạy môi trường tương tác (interactive shell) của Laravel, gọi là Tinker. Tinker cho phép bạn thực hiện các lệnh PHP và tương tác trực tiếp với ứng dụng Laravel của mình.
+
+   Khi bạn chạy php artisan tinker, bạn sẽ nhập vào môi trường dòng lệnh tương tác với ứng dụng Laravel. Điều này cho phép bạn thực hiện các thao tác như thực thi mã PHP, gọi các phương thức của ứng dụng, truy vấn cơ sở dữ liệu, tạo và tương tác với các đối tượng Laravel, và nhiều hơn nữa.
+
+   Tinker rất hữu ích trong quá trình phát triển và kiểm tra ứng dụng Laravel, cho phép bạn kiểm tra và thử nghiệm mã một cách nhanh chóng và linh hoạt, mà không cần phải tạo các tệp tin và chạy thông qua quá trình chạy ứng dụng hoàn chỉnh.
+
+chay trong tinker lenh sau: \App\Models\Post::factory()->create();   de gen ra data fake
+ tiep tuc chay lenh sau: \App\Models\Post::factory()->count(2)->create();
+
+14. php artisan make:model Food -m
+15. php artisan make:controller FoodsController
+16. php artisan route:list
+
+
+17. sau khi tạo xong food migration thì chạy
+php artisan migrate nhưng thất bại
+--> chạy php artisan migrate:reset
+-->php artisan migrate:refresh (reverses all migrations)
+
+
+// show ra chi tiet san pham
+// tam thoi chua lam vi da du crud
+// 2h16p20
